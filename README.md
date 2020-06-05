@@ -141,6 +141,7 @@ The following sections provide a full list of configuration in- and output varia
 | cluster\_in\_private\_subnet | Flag to enable installation of cluster on private subnets | `bool` | `false` | no |
 | enable\_spot\_instances | Flag to enable Spot Instances | `bool` | `false` | no |
 | enable\_key\_name | Flag to enable SSH Key Pair name | `bool` | `false` | no |
+| enable\_spot\_instances | Flag to enable Spot Instances | `bool` | `false` | no |
 | enable\_tls | Flag to enable TLS in the final `jx-requirements.yml` file | `bool` | `false` | no |
 | enable\_worker\_group | Flag to enable worker group | `bool` | `true` | no |
 | force\_destroy | Flag to determine whether storage buckets get forcefully destroyed. If set to false, empty the bucket first in the aws s3 console, else terraform destroy will fail with BucketNotEmpty error | `bool` | `false` | no |
@@ -348,6 +349,7 @@ You can use [terraform-aws-tfstate-backend](https://github.com/cloudposse/terraf
 
 ### Using Spot Instances
 
+<a id="markdown-Using%20Spot%20Instances" name="Using%20Spot%20Instances"></a>
 You can save up to 90% of cost when you use Spot Instances. You just need to make sure your applications are resilient. You can set the ceiling `spot_price` of what you want to pay then set `enable_spot_instances` to `true`.
 
 :warning: **Note**: If the price of the instance reaches this point it will be terminated.

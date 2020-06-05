@@ -89,6 +89,12 @@ variable "volume_size" {
   default     = 10
 }
 
+variable "spot_price" {
+  description = "The spot price ceiling for spot instances"
+  type        = string
+  default     = "0.1"
+}
+
 variable "iops" {
   description = "The IOPS value"
   type        = number

@@ -55,11 +55,20 @@ variable "spot_price" {
   default     = "0.1"
 }
 
+<<<<<<< HEAD
 variable "node_group_ami" {
   description = "ami type for the node group worker intances"
   type        = string
   default     = "AL2_x86_64"
 }
+=======
+variable "spot_price" {
+  description = "The spot price ceiling for spot instances"
+  type        = string
+  default     = "0.1"
+}
+
+>>>>>>> adding an option to use spot instances
 
 variable "node_group_disk_size" {
   description = "node group worker disk size"

@@ -140,8 +140,6 @@ The following sections provide a full list of configuration in- and output varia
 | enable\_spot\_instances | Flag to enable spot instances | `bool` | `false` | no |
 | cluster\_in\_private\_subnet | Flag to enable installation of cluster on private subnets | `bool` | `false` | no |
 | enable\_spot\_instances | Flag to enable Spot Instances | `bool` | `false` | no |
-| enable\_key\_name | Flag to enable SSH Key Pair name | `bool` | `false` | no |
-| enable\_spot\_instances | Flag to enable Spot Instances | `bool` | `false` | no |
 | enable\_public\_subnets | Flag to enable public subnets | `bool` | `false` | no |
 | enable\_tls | Flag to enable TLS in the final `jx-requirements.yml` file | `bool` | `false` | no |
 | enable\_worker\_group | Flag to enable worker group | `bool` | `true` | no |
@@ -158,10 +156,6 @@ The following sections provide a full list of configuration in- and output varia
 | volume\_type | The EBS Volume type | `string` | `"gp2"` | no |
 | volume\_size | The EBS Volume size in GB | `number` | `10` | no |
 | iops | The IOPS if chosen `volume_type` is `io1` | `number` | `0` | no |
-| spot_price | The ceiling price for spot instances | `string` | `"0.1"` | no |
-| key_name | The SSH Key Pair name | `string` | `""` | no |
-| volume_type | The EBS Volume type | `string` | `"gp2"` | no |
-| volume_size | The EBS Volume size in GB | `number` | `10` | no |
 | subdomain | The subdomain to be added to the apex domain. If subdomain is set, it will be appended to the apex domain in  `jx-requirements-eks.yml` file | `string` | `""` | no |
 | tls\_email | The email to register the LetsEncrypt certificate with. Added to the `jx-requirements.yml` file | `string` | `""` | no |
 | vault\_url | URL to an external Vault instance in case Jenkins X does not create its own system Vault | `string` | `""` | no |

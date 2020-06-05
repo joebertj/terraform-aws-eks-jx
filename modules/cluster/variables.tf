@@ -77,6 +77,17 @@ variable "key_name" {
   type        = string
 }
 
+variable "spot_price" {
+  description = "The spot price ceiling for spot instances"
+  type        = string
+  default     = "0.1"
+}
+
+variable "key_name" {
+  description = "The ssh key pair name to use"
+  type        = string
+}
+
 variable "volume_type" {
   description = "The volume type to use. Can be standard, gp2 or io1"
   type        = string
@@ -162,6 +173,12 @@ variable "force_destroy" {
 
 variable "enable_spot_instances" {
   description = "Flag to enable spot instances"
+  type        = bool
+  default     = false
+}
+
+variable "enable_key_name" {
+  description = "Flag to enable ssh key pair name"
   type        = bool
   default     = false
 }

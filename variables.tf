@@ -106,6 +106,28 @@ variable "node_group_disk_size" {
   default     = "50"
 }
 
+variable "key_name" {
+  description = "The ssh key pair name"
+  type        = string
+}
+
+variable "volume_type" {
+  description = "The volume type to use. Can be standard, gp2 or io1"
+  type        = string
+  default     = "gp2"
+}
+
+variable "volume_size" {
+  description = "The volume size in GB"
+  type        = number
+  default     = 10
+}
+
+variable "iops" {
+  description = "The IOPS value"
+  type        = number
+  default     = 0
+}
 // ----------------------------------------------------------------------------
 // VPC Variables
 // ----------------------------------------------------------------------------
@@ -231,6 +253,12 @@ variable "enable_key_rotation" {
 
 variable "cluster_in_private_subnet" {
   description = "Flag to enable installation of cluster on private subnets"
+  type        = bool
+  default     = false
+}
+
+variable "enable_key_name" {
+  description = "Flag to enable ssh key pair name"
   type        = bool
   default     = false
 }

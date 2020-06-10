@@ -46,9 +46,9 @@ module "cluster" {
   force_destroy         = var.force_destroy
   enable_spot_instances = var.enable_spot_instances
   enable_key_name       = var.enable_key_name
-  key_name	 	= var.key_name
-  volume_type		= var.volume_type
-  volume_size		= var.volume_size
+  key_name	 	          = var.key_name
+  volume_type		        = var.volume_type
+  volume_size		        = var.volume_size
 }
 
 // ----------------------------------------------------------------------------

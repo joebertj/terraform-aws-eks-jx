@@ -140,6 +140,7 @@ The following sections provide a full list of configuration in- and output varia
 | enable\_spot\_instances | Flag to enable spot instances | `bool` | `false` | no |
 | cluster\_in\_private\_subnet | Flag to enable installation of cluster on private subnets | `bool` | `false` | no |
 | enable\_spot\_instances | Flag to enable Spot Instances | `bool` | `false` | no |
+| enable\_key\_name | Flag to enable SSH Key Pair name | `bool` | `false` | no |
 | enable\_tls | Flag to enable TLS in the final `jx-requirements.yml` file | `bool` | `false` | no |
 | enable\_worker\_group | Flag to enable worker group | `bool` | `true` | no |
 | force\_destroy | Flag to determine whether storage buckets get forcefully destroyed. If set to false, empty the bucket first in the aws s3 console, else terraform destroy will fail with BucketNotEmpty error | `bool` | `false` | no |
@@ -156,6 +157,9 @@ The following sections provide a full list of configuration in- and output varia
 | volume\_size | The EBS Volume size in GB | `number` | `10` | no |
 | iops | The IOPS if chosen `volume_type` is `io1` | `number` | `0` | no |
 | spot_price | The ceiling price for spot instances | `string` | `"0.1"` | no |
+| key_name | The SSH Key Pair name | `string` | `""` | no |
+| volume_type | The EBS Volume type | `string` | `"gp2"` | no |
+| volume_size | The EBS Volume size in GB | `number` | `10` | no |
 | subdomain | The subdomain to be added to the apex domain. If subdomain is set, it will be appended to the apex domain in  `jx-requirements-eks.yml` file | `string` | `""` | no |
 | tls\_email | The email to register the LetsEncrypt certificate with. Added to the `jx-requirements.yml` file | `string` | `""` | no |
 | vault\_url | URL to an external Vault instance in case Jenkins X does not create its own system Vault | `string` | `""` | no |
@@ -190,6 +194,17 @@ The following sections provide a full list of configuration in- and output varia
 You can save up to 90% of cost when you use Spot Instances. You just need to make sure your applications are resilient. You can set the ceiling `spot_price` of what you want to pay then set `enable_spot_instances` to `true`.
 
 :warning: **Note**: If the price of the instance reaches this point it will be terminated. 
+
+### Using SSH Key Pair
+Import a key pair or use an existing one and take note of the name. Set `key_name` and set `enable_key_pair` to `true`.
+
+### Using different EBS Volume type and size
+Set `volume_type` to either `standard`, `gp2` or `io1` and `volume_size` to the desired size in GB. If chosing `io1` set desired `iops`.
+
+#### Resizing a disk on existing nodes
+The existing nodes needs to be terminated and replaced with new ones if disk is needed to be resized. You need to execute the following command before `terraform apply` in order to replace the Auto Scaling Launch Configuration.
+
+`terraform taint module.eks-jx.module.cluster.module.eks.aws_launch_configuration.workers[0]`
 
 ### Long Term Storage
 

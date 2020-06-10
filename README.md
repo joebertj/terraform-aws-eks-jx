@@ -23,6 +23,7 @@ The module makes use of the [Terraform EKS cluster Module](https://github.com/te
     - [Running `jx boot`](#running-jx-boot)
     - [Production cluster considerations](#production-cluster-considerations)
     - [Configuring a Terraform backend](#configuring-a-terraform-backend)
+    - [Using Spot Instances](#using-spot-instances)
     - [Examples](#examples)
 - [FAQ: Frequently Asked Questions](#faq-frequently-asked-questions)
     - [IAM Roles for Service Accounts](#iam-roles-for-service-accounts)
@@ -314,6 +315,12 @@ The [examples](./examples) directory of this repository contains configuration e
 To use the _s3_ backend, you will need to create the bucket upfront.
 You need the S3 bucket as well as a Dynamo table for state locks.
 You can use [terraform-aws-tfstate-backend](https://github.com/cloudposse/terraform-aws-tfstate-backend) to create these required resources.
+
+### Using Spot Instances
+<a id="markdown-Using%20Spot%20Instances" name="Using%20Spot%20Instances"></a>
+You can save up to 90% of cost when you use Spot Instances. You just need to make sure your applications are resilient. You can set the ceiling `spot_price` of what you want to pay then set `enable_spot_instances` to `true`.
+
+:warning: **Note**: If the price of the instance reaches this point it will be terminated.
 
 ### Examples
 <a id="markdown-Examples" name="Examples"></a>

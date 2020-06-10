@@ -58,6 +58,29 @@ variable "spot_price" {
   type        = string
   default     = "0.1"
 }
+
+variable "key_name" {
+  description = "The ssh key pair name"
+  type        = string
+}
+
+variable "volume_type" {
+  description = "The volume type to use. Can be standard, gp2 or io1"
+  type        = string
+  default     = "gp2"
+}
+
+variable "volume_size" {
+  description = "The volume size in GB"
+  type        = number
+  default     = 10
+}
+
+variable "iops" {
+  description = "The IOPS value"
+  type        = number
+  default     = 0
+}
 // ----------------------------------------------------------------------------
 // VPC Variables
 // ----------------------------------------------------------------------------
@@ -153,6 +176,12 @@ variable "force_destroy" {
 
 variable "enable_spot_instances" {
   description = "Flag to enable spot instances"
+  type        = bool
+  default     = false
+}
+
+variable "enable_key_name" {
+  description = "Flag to enable ssh key pair name"
   type        = bool
   default     = false
 }

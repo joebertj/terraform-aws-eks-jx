@@ -67,6 +67,14 @@ module "eks" {
       asg_min_size         = var.min_node_count
       asg_max_size         = var.max_node_count
       spot_price           = (var.enable_spot_instances ? var.spot_price : null)
+      key_name             = (var.enable_key_name ? var.key_name : null)
+      root_block_device    = [
+        {
+          volume_type = var.volume_type
+          volume_size = var.volume_size
+          iops        = var.iops
+        }
+      ]
       tags = [
         {
           "key"                 = "k8s.io/cluster-autoscaler/enabled"

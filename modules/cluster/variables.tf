@@ -153,3 +153,21 @@ variable "enable_key_name" {
   type        = bool
   default     = false
 }
+
+variable "force_destroy" {
+  description = "Flag to determine whether storage buckets get forcefully destroyed. If set to false, empty the bucket first in the aws s3 console, else terraform destroy will fail with BucketNotEmpty error"
+  type        = bool
+  default     = false
+}
+
+variable "enable_spot_instances" {
+  description = "Flag to enable spot instances"
+  type        = bool
+  default     = false
+}
+
+variable "enable_public_subnets" {
+  description = "Flag to enable public subnets"
+  type        = bool
+  default     = false
+}

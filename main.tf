@@ -55,6 +55,7 @@ module "cluster" {
   volume_type               = var.volume_type
   volume_size               = var.volume_size
   iops                      = var.iops
+  enable_public_subnets     = var.enable_public_subnets
 }
 
 // ----------------------------------------------------------------------------

@@ -262,3 +262,9 @@ variable "enable_key_name" {
   type        = bool
   default     = false
 }
+
+variable "enable_public_subnets" {
+  description = "Flag to enable public subnets"
+  type        = bool
+  default     = false
+}

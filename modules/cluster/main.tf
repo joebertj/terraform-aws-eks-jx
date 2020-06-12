@@ -34,8 +34,8 @@ module "vpc" {
   name                 = var.vpc_name
   cidr                 = var.vpc_cidr_block
   azs                  = data.aws_availability_zones.available.names
-  public_subnets       = var.public_subnets
-  private_subnets      = var.private_subnets
+  public_subnets       = (var.enable_public_subnets ? var.vpc_subnets : null)
+  private_subnets      = (var.enable_public_subnets ? null : var.vpc_subnets)
   enable_dns_hostnames = true
 
   tags = {

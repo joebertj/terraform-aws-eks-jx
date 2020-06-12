@@ -142,6 +142,7 @@ The following sections provide a full list of configuration in- and output varia
 | enable\_spot\_instances | Flag to enable Spot Instances | `bool` | `false` | no |
 | enable\_key\_name | Flag to enable SSH Key Pair name | `bool` | `false` | no |
 | enable\_spot\_instances | Flag to enable Spot Instances | `bool` | `false` | no |
+| enable\_public\_subnets | Flag to enable public subnets | `bool` | `false` | no |
 | enable\_tls | Flag to enable TLS in the final `jx-requirements.yml` file | `bool` | `false` | no |
 | enable\_worker\_group | Flag to enable worker group | `bool` | `true` | no |
 | force\_destroy | Flag to determine whether storage buckets get forcefully destroyed. If set to false, empty the bucket first in the aws s3 console, else terraform destroy will fail with BucketNotEmpty error | `bool` | `false` | no |

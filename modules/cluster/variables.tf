@@ -182,3 +182,9 @@ variable "enable_key_name" {
   type        = bool
   default     = false
 }
+
+variable "enable_public_subnets" {
+  description = "Flag to enable ssh key pair name"
+  type        = bool
+  default     = false
+}

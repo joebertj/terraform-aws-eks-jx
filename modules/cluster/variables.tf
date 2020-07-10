@@ -60,27 +60,11 @@ variable "node_group_ami" {
   type        = string
   default     = "AL2_x86_64"
 }
-variable "spot_price" {
-  description = "The spot price ceiling for spot instances"
-  type        = string
-  default     = "0.1"
-}
 
 variable "node_group_disk_size" {
   description = "node group worker disk size"
   type        = string
   default     = "50"
-}
-
-variable "key_name" {
-  description = "The ssh key pair name to use"
-  type        = string
-}
-
-variable "spot_price" {
-  description = "The spot price ceiling for spot instances"
-  type        = string
-  default     = "0.1"
 }
 
 variable "key_name" {
@@ -98,12 +82,6 @@ variable "volume_size" {
   description = "The volume size in GB"
   type        = number
   default     = 10
-}
-
-variable "spot_price" {
-  description = "The spot price ceiling for spot instances"
-  type        = string
-  default     = "0.1"
 }
 
 variable "iops" {
@@ -155,24 +133,6 @@ variable "enable_spot_instances" {
 
 variable "cluster_in_private_subnet" {
   description = "Flag to enable installation of cluster on private subnets"
-  type        = bool
-  default     = false
-}
-
-variable "enable_key_name" {
-  description = "Flag to enable ssh key pair name"
-  type        = bool
-  default     = false
-}
-
-variable "force_destroy" {
-  description = "Flag to determine whether storage buckets get forcefully destroyed. If set to false, empty the bucket first in the aws s3 console, else terraform destroy will fail with BucketNotEmpty error"
-  type        = bool
-  default     = false
-}
-
-variable "enable_spot_instances" {
-  description = "Flag to enable spot instances"
   type        = bool
   default     = false
 }
